@@ -33,7 +33,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.CodigoUsuariotextBox = new System.Windows.Forms.TextBox();
             this.Clavetext = new System.Windows.Forms.TextBox();
-            this.Aceptarbutton1 = new System.Windows.Forms.Button();
+            this.Aceptarbutton = new System.Windows.Forms.Button();
             this.Cancelarbutton = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -76,18 +76,18 @@
             this.Clavetext.Size = new System.Drawing.Size(168, 23);
             this.Clavetext.TabIndex = 3;
             // 
-            // Aceptarbutton1
+            // Aceptarbutton
             // 
-            this.Aceptarbutton1.Image = global::Vista.Properties.Resources.aceptar;
-            this.Aceptarbutton1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Aceptarbutton1.Location = new System.Drawing.Point(40, 188);
-            this.Aceptarbutton1.Name = "Aceptarbutton1";
-            this.Aceptarbutton1.Size = new System.Drawing.Size(81, 35);
-            this.Aceptarbutton1.TabIndex = 4;
-            this.Aceptarbutton1.Text = "Aceptar";
-            this.Aceptarbutton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Aceptarbutton1.UseVisualStyleBackColor = true;
-            this.Aceptarbutton1.Click += new System.EventHandler(this.button1_Click);
+            this.Aceptarbutton.Image = global::Vista.Properties.Resources.aceptar;
+            this.Aceptarbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Aceptarbutton.Location = new System.Drawing.Point(40, 188);
+            this.Aceptarbutton.Name = "Aceptarbutton";
+            this.Aceptarbutton.Size = new System.Drawing.Size(81, 35);
+            this.Aceptarbutton.TabIndex = 4;
+            this.Aceptarbutton.Text = "Aceptar";
+            this.Aceptarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Aceptarbutton.UseVisualStyleBackColor = true;
+            this.Aceptarbutton.Click += new System.EventHandler(this.button1_Click);
             // 
             // Cancelarbutton
             // 
@@ -117,14 +117,14 @@
             // 
             // Login
             // 
-            this.AcceptButton = this.Aceptarbutton1;
+            this.AcceptButton = this.Aceptarbutton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.Cancelarbutton;
             this.ClientSize = new System.Drawing.Size(462, 239);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Cancelarbutton);
-            this.Controls.Add(this.Aceptarbutton1);
+            this.Controls.Add(this.Aceptarbutton);
             this.Controls.Add(this.Clavetext);
             this.Controls.Add(this.CodigoUsuariotextBox);
             this.Controls.Add(this.label2);
@@ -144,7 +144,7 @@
         private Label label2;
         private TextBox CodigoUsuariotextBox;
         private TextBox Clavetext;
-        private Button Aceptarbutton1;
+        private Button Aceptarbutton;
         private Button Cancelarbutton;
         private ErrorProvider errorProvider1;
         private PictureBox pictureBox1;

@@ -32,7 +32,7 @@ namespace Vista
             UsuariosdataGridView.DataSource = await userDatos.DevolverListaAsync();
         }
 
-        private void nuevobutton_Click(object sender, EventArgs e)
+        private void Nuevobutton_Click_1(object sender, EventArgs e)
         {
             Habilitarcontroles();
             tipoOperacion = "Nuevo";
@@ -65,15 +65,29 @@ namespace Vista
             RolcomboBox.Text = String.Empty;
            
         }
-        private void Cancelarbutton_Click(object sender, EventArgs e)
+        private void Cancelarbutton_Click_1(object sender, EventArgs e)
         {
             Deshabilitarcontroles();
             Limpiarcontroles();
         }
-        private void Modificarbutton_Click(object sender, EventArgs e)
+        private void Modificarbutton_Click_1(object sender, EventArgs e)
         {
             tipoOperacion = "Modificar";
+            if (UsuariosdataGridView.SelectedRows.Count> 0)
+            {
+                CodigotextBox.Text = UsuariosdataGridView.CurrentRow.Cells["Codigo"].Value.ToString();
+                NombretextBox.Text = UsuariosdataGridView.CurrentRow.Cells["Nombre"].Value.ToString();
+                ClavetextBox.Text = UsuariosdataGridView.CurrentRow.Cells["Clave"].Value.ToString();
+                CorreotextBox.Text = UsuariosdataGridView.CurrentRow.Cells["Correo"].Value.ToString();
+                RolcomboBox.Text = UsuariosdataGridView.CurrentRow.Cells["Rol"].Value.ToString();
+                Habilitarcontroles();
+                CodigotextBox.ReadOnly = true;
 
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un registro", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private async void Guardarbutton_Click(object sender, EventArgs e)
@@ -112,7 +126,7 @@ namespace Vista
                 user.Clave = ClavetextBox.Text;
                 user.Correo = CorreotextBox.Text;
                 user.Rol = RolcomboBox.Text;
-               
+
 
                 bool inserto = await userDatos.InsertarAsync(user);
 
@@ -130,7 +144,58 @@ namespace Vista
                 {
                     MessageBox.Show("Usuario no se pudo guardar", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+         
+            }
+            else if (tipoOperacion == "Modificar")
+            {
+                if (CodigotextBox.Text == "")
+                {
+                    errorProvider1.SetError(CodigotextBox, "Por favor ingrese un codigo");
+                    CodigotextBox.Focus();
+                    return;
+                }
+                if (string.IsNullOrEmpty(NombretextBox.Text)) ;
+                {
+                    errorProvider1.SetError(NombretextBox, "Por favor ingrese un nombre");
+                    NombretextBox.Focus();
+                    return;
+                }
+                if (string.IsNullOrEmpty(ClavetextBox.Text)) ;
+                {
+                    errorProvider1.SetError(ClavetextBox, "Por favor ingrese una clave");
+                    ClavetextBox.Focus();
+                    return;
+                }
+                if (string.IsNullOrEmpty(RolcomboBox.Text)) ;
+                {
+                    errorProvider1.SetError(RolcomboBox, "seleccione un rol");
+                    RolcomboBox.Focus();
+                    return;
+                }
+
+                user.Codigo = CodigotextBox.Text;
+                user.Nombre = NombretextBox.Text;
+                user.Clave = ClavetextBox.Text;
+                user.Correo = CorreotextBox.Text;
+                user.Rol = RolcomboBox.Text;
+
+                bool modifico = await userDatos.ActualizarAsync(user);
+
+                if (modifico)
+                {
+                    LlenarDataGrid();
+                    Limpiarcontroles();
+                    Deshabilitarcontroles();
+
+                    MessageBox.Show("Usuario Guardado", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+                else
+                {
+                    MessageBox.Show("Usuario no se pudo guardar", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }
+    
 }

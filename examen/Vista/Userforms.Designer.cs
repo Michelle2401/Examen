@@ -154,6 +154,7 @@
             this.Guardarbutton.TabIndex = 11;
             this.Guardarbutton.Text = "Guardar";
             this.Guardarbutton.UseVisualStyleBackColor = true;
+            this.Guardarbutton.Click += new System.EventHandler(this.Guardarbutton_Click);
             // 
             // Nuevobutton
             // 
@@ -163,6 +164,7 @@
             this.Nuevobutton.TabIndex = 12;
             this.Nuevobutton.Text = "Nuevo";
             this.Nuevobutton.UseVisualStyleBackColor = true;
+            this.Nuevobutton.Click += new System.EventHandler(this.Nuevobutton_Click_1);
             // 
             // Cancelarbutton
             // 
@@ -172,6 +174,7 @@
             this.Cancelarbutton.TabIndex = 13;
             this.Cancelarbutton.Text = "Cancelar";
             this.Cancelarbutton.UseVisualStyleBackColor = true;
+            this.Cancelarbutton.Click += new System.EventHandler(this.Cancelarbutton_Click_1);
             // 
             // Modificarbutton
             // 
@@ -181,6 +184,7 @@
             this.Modificarbutton.TabIndex = 14;
             this.Modificarbutton.Text = "Modificar";
             this.Modificarbutton.UseVisualStyleBackColor = true;
+            this.Modificarbutton.Click += new System.EventHandler(this.Modificarbutton_Click_1);
             // 
             // errorProvider1
             // 

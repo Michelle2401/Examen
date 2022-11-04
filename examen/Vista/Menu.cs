@@ -17,9 +17,14 @@ namespace Vista
             InitializeComponent();
         }
 
-        private void listaDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+        private void listaDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Userforms userforms = new Userforms();
+            userforms.Show();
         }
     }
 }
