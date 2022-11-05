@@ -26,5 +26,13 @@ namespace Vista
             Userforms userforms = new Userforms();
             userforms.Show();
         }
+
+        private void listaDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ProductoForm productosform = new ProductoForm();
+            productosform.Show();
+        }
+
     }
 }
+  
